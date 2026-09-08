@@ -1,0 +1,4 @@
+strands-agents[openai]>=1.0.0
+bedrock-agentcore>=0.1.0
+pyyaml>=6.0
+pytest>=8.0.0

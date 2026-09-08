@@ -1,0 +1,7 @@
+name: Northside Co-op 401(k) Committee
+org_type: employer 401(k) plan committee
+who_decides: 4-person plan committee choosing the default fund lineup for 60 employees
+holdings_text: (see share link — the plan's default target-date fund modeled on the calculator)
+share_link: "https://carbon-footprint-calc-wine.vercel.app/#a=us_%3A54%2Cint%3A27%2Ceme%3A9%2Cus_b%3A10&$=3200000"
+amount_usd: 3200000
+max_shift_points: 10

@@ -1,0 +1,1 @@
+vendored from localecho/carbon-footprint-calculator@cab8947 (branch feat/v2-honesty-pass) on 2026-09-08

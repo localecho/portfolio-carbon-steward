@@ -1,0 +1,10 @@
+name: Lincoln Elementary PTA Reserve Fund
+org_type: PTA reserve fund
+who_decides: PTA treasurer + 3 officers, annual vote
+holdings_text: |
+  $38,000 in a Fidelity money market (SPAXX)
+  $52,000 in FXAIX
+  $10,000 in a school-district credit union savings account
+scope3: false
+max_shift_points: 15
+notes: Statement pasted in dollars; total should be derived by the agent.

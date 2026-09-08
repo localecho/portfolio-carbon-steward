@@ -1,0 +1,13 @@
+name: First Congregational Endowment Committee
+org_type: congregation endowment
+who_decides: endowment committee of 7, meets twice a year
+holdings_text: |
+  55% US stock index fund
+  20% international stock fund
+  20% bond fund
+  3% Bitcoin ETF (IBIT) a member donated
+  2% "Legacy Growth Fund" (details unknown)
+amount_usd: 1150000
+scope3: true
+max_shift_points: 10
+notes: Committee wants to see the Scope 3 view because a member read about it. One holding is unidentifiable.

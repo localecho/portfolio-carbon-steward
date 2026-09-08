@@ -1,0 +1,14 @@
+name: Maple Street Community Foundation
+org_type: community foundation (volunteer finance committee)
+who_decides: 5-person volunteer finance committee, meets quarterly, no paid investment staff
+holdings_text: |
+  VTI 42%
+  VXUS 18%
+  BND 25%
+  VNQ 5%
+  XLE 4%
+  Local bank CD ladder 6%
+amount_usd: 2400000
+scope3: false
+max_shift_points: 10
+notes: Board asked "what is our carbon footprint" after a donor question; nobody on the committee could answer.

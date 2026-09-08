@@ -37,6 +37,19 @@ Real, unedited runs: `sample_run_community_foundation.md`, `sample_run_pta_reser
 `sample_run_congregation_endowment.md` (includes an unmappable holding and a Bitcoin ETF),
 `sample_run_share_link_401k.md`.
 
+## Optional: `--verify` — a second, independent system checks the brief's facts
+
+With `--verify`, the sentences in the brief that cite an external source or a dated figure are sent to
+[Continuity Check](https://github.com/localecho/continuity-check) (Gemini on Vertex AI + Parallel Search,
+live web evidence) and a "Live fact-check" section is appended: CONFIRMED / CONTRADICTED / UNVERIFIABLE
+per sentence with sources. The Steward's own arithmetic is deliberately excluded (that is tested, not
+searched). Honest expectation from the first real run (`sample_run_community_foundation_verified.md`):
+most asset-class intensity figures come back UNVERIFIABLE — the web does not publish "US equities = 60
+t/$M" as a sentence — and a CONFIRMED can be reached through a *different* metric (gCO2/kWh instead of
+t/$M), so read the reasoning, not just the label. The value is the CONTRADICTED lines: those name an input
+to re-check before a committee acts. Direction is one-way: the Steward calls Continuity Check; Continuity
+Check never depends on the Steward.
+
 ## Honesty rails (the point of the project)
 
 - The scope basis is in the headline sentence and next to any fossil-vs-clean comparison. On a
@@ -58,7 +71,8 @@ uv venv --python 3.12 .venv && uv pip install -r requirements.txt --python .venv
 export OPENROUTER_API_KEY=...            # default provider; or STEWARD_MODEL_PROVIDER=bedrock
 .venv/bin/python -m src.run --profile profiles/community_foundation.yaml
 .venv/bin/python -m src.run --text "VTI 60%, BND 30%, cash 10%" --amount 850000 --org "Maple St PTA"
-.venv/bin/python -m pytest -q            # 33 tests, no network
+.venv/bin/python -m src.run --profile profiles/community_foundation.yaml --verify   # + live fact-check of the brief's sourced facts
+.venv/bin/python -m pytest -q            # 36 tests, no network
 ```
 
 Provider switch: `STEWARD_MODEL_PROVIDER=openrouter|bedrock`, `STEWARD_MODEL_ID=<id>`. The agent

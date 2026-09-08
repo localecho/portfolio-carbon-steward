@@ -89,6 +89,7 @@ def main(argv=None) -> int:
     p.add_argument("--scope3", action="store_true", help="add the estimated Scope 3 uplift")
     p.add_argument("--max-points", type=float, default=10)
     p.add_argument("--save", help="write the brief to this Markdown file")
+    p.add_argument("--verify", action="store_true", help="send the brief's factual sentences to Continuity Check and append a live fact-check section")
     a = p.parse_args(argv)
     if a.profile:
         prof = PortfolioProfile.from_yaml(a.profile)
@@ -98,6 +99,15 @@ def main(argv=None) -> int:
     else:
         p.error("give --profile or --text")
     brief, calls = run_with_trace(prof)
+    verify_md = ""
+    if a.verify:
+        from src.factcheck import continuity_check, factual_sentences, render_section
+        try:
+            rows = continuity_check(factual_sentences(brief))
+            verify_md = render_section(rows)
+        except Exception as exc:  # the brief stands on its own; the fact-check is additive
+            verify_md = f"## Live fact-check (Continuity Check)\n\n_Unavailable: {exc}_\n"
+        brief = brief + "\n\n" + verify_md
     print(brief)
     checks = verify_brief(brief, calls, prof)
     print("\n## Machine check\n" + "\n".join(("PASS " if ok else "FAIL ") + lbl for ok, lbl in checks))

@@ -72,6 +72,15 @@ is dropped. 33 tests, no network. Every saved run ends with a machine check that
 `base_url`) or Amazon Bedrock — same agent either way. `deploy/agentcore_app.py` wraps the agent
 for Bedrock AgentCore Runtime.
 
+## It checks itself against a second system
+
+`--verify` sends the brief's sourced facts (the Cambridge Bitcoin figure, the CoinGecko market cap, the
+MSCI/PCAF definitions) to an independent fact-checker, Continuity Check (Gemini + Parallel Search, live
+web evidence), and appends a CONFIRMED / CONTRADICTED / UNVERIFIABLE line per fact with sources. The first
+real run was humbling in the right way: most asset-class intensities came back UNVERIFIABLE because the
+web does not publish them as sentences, and one came back CONTRADICTED — exactly the input a committee
+should re-check. The agent's own arithmetic is excluded on purpose; that is tested, not searched.
+
 ## Challenges
 
 - **Cash wins every carbon ranking.** At 2 t/$M, "move it to cash" beat every real reallocation.

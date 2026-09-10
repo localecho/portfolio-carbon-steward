@@ -45,7 +45,7 @@ flowchart LR
 
 **Why the model is separate from the tools.** `src/model.py` has no Strands import and no I/O; the
 tools are thin, typed wrappers with docstrings the model reads. That keeps the arithmetic testable
-without a model call (33 tests, ~1 s, no network) and lets `tests/test_model.py` prove the Python
+without a model call (36 tests, ~1 s, no network) and lets `tests/test_model.py` prove the Python
 port matches the JavaScript the public calculator serves — the agent can never quietly disagree
 with the page.
 

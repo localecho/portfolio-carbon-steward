@@ -68,7 +68,7 @@ Strands Agents SDK. Six `@tool` functions around a pure, DOM-free model (`src/mo
 is a port of the JavaScript the public calculator ships — and `tests/test_model.py` proves the
 two agree through node, so the agent can never quietly disagree with the page. One system prompt
 carries the procedure and the honesty rails; `tests/test_judgment_invariants.py` fails if a rail
-is dropped. 33 tests, no network. Every saved run ends with a machine check that the brief's numbers are the tool's numbers, computed on exactly the parsed allocation at the real total. Provider is an env switch: OpenRouter (`OpenAIModel` with a
+is dropped. 36 tests, no network. Every saved run ends with a machine check that the brief's numbers are the tool's numbers, computed on exactly the parsed allocation at the real total. Provider is an env switch: OpenRouter (`OpenAIModel` with a
 `base_url`) or Amazon Bedrock — same agent either way. `deploy/agentcore_app.py` wraps the agent
 for Bedrock AgentCore Runtime.
 
